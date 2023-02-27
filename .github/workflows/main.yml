@@ -1,0 +1,19 @@
+name: Push Desktop File to GitHub
+on: [push]
+   
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Copy Desktop File
+        run: cp C:/Users/svelpuri/Desktop/factorial.java C:/Users/svelpuri/1
+        
+      - name: Commit Changes
+        run: |
+          git add .
+          git commit -m "Add desktop file"
+          
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
